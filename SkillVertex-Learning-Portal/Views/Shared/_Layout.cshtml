@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SkillVertex_Learning_Portal</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/template.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/icofont/icofont/icofont.min.css">
+    <link rel="stylesheet" href="~/SkillVertex_Learning_Portal.styles.css" asp-append-version="true" />
+    <link rel="shortcut icon" href="@Url.Content("~/images/logos/skillvertex-favicon.ico")" type="image/x-icon">
+</head>
+<body style="background:url('../images/meetings-page-bg.jpg')">
+    <div class="sub-header" style="background-color:#111">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-8">
+          <div class="left-content">
+            <p>
+              <span style="padding-right: 10px;">
+                <i class="icofont-ui-head-phone" style="padding: 0px 2px;"></i><a href="mailto:support@gmail.com" style="color: white;">support@skillvertex.in</a>
+              </span>
+              <span><i class="icofont-location-pin"></i><a href="https://goo.gl/maps/FPtkZEdfpWhFi6TN6" target="_blank" style="color: white;">Obeya Gusto, 5th Main Rd, Sector 6, HSR Layout, Bengaluru</a></span>
+            </p>
+            
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-4">
+          <div class="right-icons">
+            <ul>
+              <li><a target="_blank" href="https://www.linkedin.com/company/skillvertexedutech/"><i class="fa fa-linkedin"></i></a></li>
+              <li><a target="_blank" href="https://www.facebook.com/skillvertex.in/"><i class="fa fa-facebook"></i></a></li>
+              <li><a target="_blank" href="https://www.instagram.com/skillvertex.in/"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="@Url.Content("~/images/logos/SkillVertex_Logo Black_PNG.png")" style="height:70px;" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-lg-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1" style="padding-left:10px;">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" style="color:black;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Courses
+                              </a>
+                              <ul class="dropdown-menu" style="min-width:300px;" aria-labelledby="navbarDropdown">
+                        
+                               
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" href="/courses?id=1"><img src="@Url.Content("~/images/course-images/domains/Advanced.png")" style="padding:0px 20px 0px 10px;height:30px;" />Advance Course</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" href="/courses?id=2"><img src="@Url.Content("~/images/course-images/domains/Cohort.png")" style="padding:0px 20px 0px 10px;height:30px;" />Programming Fundamentals</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" href="/courses?id=3"><img src="@Url.Content("~/images/course-images/domains/Training.png")" style="padding:0px 20px 0px 10px;height:30px;" />Training and Internship</a>
+                                    </li>
+                               
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="Create">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">LMS Portal</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                    
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="header">
+    <div class="container">
+      <div class="row">
+          @RenderBody()
+      </div>
+    </div>
+  </div>
+    <div class="container">
+        <br /><br /><br /><br /><br />
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    
+
+    <footer id="dk-footer" class="dk-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-4">
+                <div class="dk-footer-box-info" id="company-info">
+                    <a href="index.html" class="footer-logo">
+                        <img src="@Url.Content("~/images/logos/SkillVertex_Logo White_PNG.png")" style="height:40px;" alt="footer_logo" class="img-fluid">
+                    </a>
+                    <p class="footer-info-text">
+                        We are an EdTech organization where we look forward to provide upskilling and training to students and working professionals by delivering a diverse range of programs in accordance with their needs and future aspirations.
+                    </p>
+                    <div class="footer-social-link">
+                        <h3>Follow us</h3>
+                        <ul>
+                            <li><a target="_blank" href="https://www.facebook.com/skillvertex.in/"><i class="fa fa-facebook"></i></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/company/skillvertexedutech/"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a target="_blank" href="https://www.instagram.com/skillvertex.in/"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-8">
+                <div class="row" id="contact">
+                    <div class="col-md-6">
+                        <div class="contact-us" style="margin-top: 25px;">
+                            <div class="contact-icon">
+                              <i class="icofont-location-pin" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h3>Bengaluru<br>Karnataka, India</h3>
+                                <p>OBEYA GUSTO<br>Sector 6, HSR Layout</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contact-us contact-us-last">
+                            <div class="contact-icon">
+                              <i class="icofont-ui-head-phone" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h3>960 601 2806</h3><h3>988 697 9400</h3><h3>740 676 5442</h3>
+                                <p>Give us a call</p>
+                                <h3>support@skillvertex.in</h3>
+                                <p>Drop a mail</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-6">
+                        <div class="footer-widget footer-left-widget">
+                            <div class="section-heading">
+                                <h3>Useful Links</h3>
+                                <span class="animate-border border-black"></span>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="#">All Courses</a>
+                                </li>
+                                <li>
+                                    <a href="#">About us</a>
+                                </li>
+                                <li>
+                                    <a href="#">LMS Portal</a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href="#">FAQs</a>
+                                </li>
+                                <li>
+                                    <a href="#">Testimonials</a>
+                                </li>
+                                <li>
+                                    <a href="#">Teach with us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6">
+                        <div class="footer-widget">
+                            <div class="section-heading">
+                                <h3>Subscribe</h3>
+                                <span class="animate-border border-black"></span>
+                            </div>
+                            <p style="color: whitesmoke;">Join our newsletter to stay updated about Skill vertex!</p>
+                            <form action="#">
+                                <div class="form-row">
+                                    <div class="col dk-footer-form">
+                                        <input style="height: 50px;" type="email" class="form-control" placeholder="Email Address">
+                                        <button type="submit">
+                                            <i class="fa fa-send"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <span>©2021 Upskilling Edutech Private Limited. All Rights Reserved.</span>
+                </div>
+                <div class="col-md-6">
+                    <div class="copyright-menu">
+                        <ul>
+                            <li>
+                                <a href="#">Terms</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="#">copyright</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </footer>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

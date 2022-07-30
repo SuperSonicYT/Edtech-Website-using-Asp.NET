@@ -1,0 +1,124 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model SkillVertex_Learning_Portal.Models.Courses
+
+@{
+    ViewData["Title"] = "Details";
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<style>
+    .dk-footer {
+        margin-top:2100px;
+    }
+</style>
+
+<section class="meetings-page" id="meetings" style="position: absolute; left: 0; top: 140px; width: 100%; height:2500px;">
+    <div class="container" style="margin-top:30px">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="meeting-single-item">
+                <div class="thumb">
+                  <div class="date">
+                    <h6>Duration<span>@Html.DisplayFor(model => model.Duration)</span>Months</h6>
+                  </div>
+                  <a href="meeting-details.html"><img src="~/images/course-images/course-banners/@Html.DisplayFor(model => model.Banner)" style="width: 100%;" alt=""></a>
+                </div>
+                <div class="down-content" style="position:relative;">
+                  <h1>@Html.DisplayFor(model => model.CourseName)</h1>
+                  <p>Program Category:@Html.DisplayFor(model => model.CourseCategory)</p>
+                  <p>Program Sub-category:@Html.DisplayFor(model => model.CourseSubCategory)</p>
+
+                  
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <div class="container-fluid" style="position:absolute; top:60px; left:70%;">
+                                <a class="btn btn-warning icofont-cart p-3" asp-action="Checkout" asp-route-id="@Model?.Id">Add to Cart</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="container-fluid" style="position:absolute; top:60px; left:70%;">
+                                <a class="btn btn-warning icofont-cart p-3" asp-area="Identity" asp-page="/Account/Login">Add to Cart</a>
+                            </div>
+                        }
+
+                  <p class="description" style="text-align: justify;">@Html.DisplayFor(model => model.LongDesc)</p>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="hours">
+                        <h5>What will you learn</h5>
+                        <p><ul style="list-style:square; margin:0px 0px 50px 50px;">@Html.DisplayFor(model => model.Learning)</ul></p>
+                      </div>
+                    </div>
+                  </div>
+                  <hr style="color: #999;">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="hours">
+                        <br>
+                        <h5>Course Features</h5>
+                        <p><ul style="list-style-image: url('assets/images/check-mark.png'); list-style:square; margin:0px 0px 50px 50px;">@Html.DisplayFor(model => model.Features)</ul></p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <hr style="color: #999;">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="hours">
+                        <h5>Hours</h5>
+                        <p >Monday - Friday: 06:00 PM - 10:00 PM<br>Saturday - Sunday:04:00 PM - 10:00 PM</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="location">
+                        <h5>Medium of Classes</h5>
+                        <p>Google Meets<br>Zoom Meetings</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="book now">
+                        <h5>Class Duration</h5>
+                        <p>1 - 2 hours</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="share">
+                        <h5>Share:</h5>
+                        <ul>
+                          <li><a href="#">Facebook</a>,</li>
+                          <li><a href="#">Twitter</a>,</li>
+                          <li><a href="#">Linkedin</a>,</li>
+                          <li><a href="#">Behance</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

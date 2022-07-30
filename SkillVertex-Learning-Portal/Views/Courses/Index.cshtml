@@ -1,0 +1,98 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model IEnumerable<SkillVertex_Learning_Portal.Models.Courses>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+
+<body style="background:url('images/meetings-page-bg.jpg')">
+
+
+  <img src="images/banners/@ViewBag.banner" style="position: absolute; left: 0; top: 140px; width: 100%; padding:0px;" />
+
+ 
+  <section class="meetings-page" id="meetings" style="margin-top:700px">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+          <div class="col-lg-12">
+          
+              @if(ViewBag.Category != "Programming Fundamentals") {
+          
+              <div class="filters">
+                <ul>
+                  <li data-filter="*"  class="active">All Courses</li>
+                  <li data-filter=".computer-science">Computer Science</li>
+                  <li data-filter=".management">Management</li>
+                  <li data-filter=".civil-engg">Civil</li>
+                  <li data-filter=".electronics-engg">Electronics</li>
+                  <li data-filter=".mechanical-engg">Mechanical</li>
+                </ul>
+              </div>
+              }
+
+              <div class="row grid">
+              @foreach (var item in Model)
+              {
+                if(ViewBag.Category == item.CourseCategory) {
+                <div class="col-lg-4 templatemo-item-col all @Html.DisplayFor(modelItem => item.CourseSubCategory)">
+                  <div class="meeting-item"> 
+                    <div class="thumb">
+                      <div class="price">
+                        <span>Starting from ₹@Html.DisplayFor(modelItem => item.Fee)</span>
+                      </div>
+                      <a  asp-action="Details" asp-route-id="@item.Id"><img src="~/images/course-images/course-icons/@Html.DisplayFor(modelItem => item.Icon)" style="max-width: 100%; padding: 20px;" alt=""></a>
+                    </div>
+                    <div class="down-content">
+                      <div class="date">
+                        <h6>Duration<span>@Html.DisplayFor(modelItem => item.Duration)</span>Months</h6>
+                      </div>
+                      <a asp-action="Details" asp-route-id="@item.Id"><h4>@Html.DisplayFor(modelItem => item.CourseName)</h4></a>
+                      <p>@Html.DisplayFor(modelItem => item.ShortDesc)<a asp-action="Details" asp-route-id="@item.Id">...learn more</a></p>
+                      <hr />
+
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <div class="container-fluid" style="text-align:center;">
+                                <a class="btn btn-warning icofont-cart p-3" asp-action="Checkout" asp-route-id="@item.Id">Add to Cart</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="container-fluid" style="text-align:center;">
+                                <a class="btn btn-warning icofont-cart p-3" asp-area="Identity" asp-page="/Account/Login">Add to Cart</a>
+                            </div>
+                        }
+                      
+                    </div>
+                    
+                  </div>
+                </div>
+              }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  
+    
+</body>
+</html>
